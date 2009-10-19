@@ -1,0 +1,5 @@
+<ul class='tweets'>
+  <% for tweet in @tweets %>
+    <li><%= link_to tweet['user']['mattelhot'] + ':', 'http://twitter.com/' + tweet['user']['mattelhot'], :target => '_blank' %> <%= tweet['text'] %></li>
+  <% end %>
+</ul>

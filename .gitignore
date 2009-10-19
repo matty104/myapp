@@ -1,0 +1,13 @@
+log
+log/*.log
+log
+tmp/*
+tmp/**/*
+.DS_Store
+db/schema.rb
+db/*.bkp
+.DS_Store
+*.swp
+*~
+index/**/*
+config/database.yml

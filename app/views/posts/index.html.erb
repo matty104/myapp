@@ -1,0 +1,63 @@
+<h1>Listing posts</h1>
+<div id="document">
+	
+</div>
+
+
+<%= render :partial => @posts %>
+<%= link_to 'Heading over to Comments', comments_path, :onclick => 'alert("We Are leaving this page")' %>
+<%= link_to 'Printing out My name', posts_path,  :onclick => 'displayName("Matt")' %>
+
+
+<% if @posts %>
+<input id= "button_gone" type="button" value="Click to display the button!" onclick="displayMessage()" />
+<% end %>
+<div id="display_me" style ="display: none;">
+	<%= link_to "New Comment", { :controller => 'comments', :action => 'new' }, :class => 'boxy', :title => 'Add a new comment'-%>	
+</div>
+
+<%= link_to_function image_tag('/images/minusButton.gif',:border=>0), "subtract()" %>
+<%= link_to_function image_tag('/images/plusButton.gif',:border=>0), "add()" %>  
+
+	
+<strong>Total Amount:</strong> 
+$<span id="bid_total_donation_amount">0.00</span>
+
+<script type="text/javascript">
+function displayMessage()
+{
+alert("Button is Gone but will appear after this window is gone");
+document.getElementById("display_me").style.display = "block"; //shows the hidden link
+document.getElementById("button_gone").style.display = "none";} //hides the button
+// document.getElementById("display_me").innerHTML = 'Whatever';
+
+function displayName(name)
+{
+alert(name);
+document.write("TEST me<b> " + name + "  and see if I am accurate me </b>.")
+return false; 
+}
+</script>
+
+
+<script type="text/javascript">
+function add() {
+  extra = 1;
+  amount = parseFloat(document.getElementById("bid_total_donation_amount").innerHTML);
+  if (isNaN(amount)) {
+      amount = 0.0;
+  }
+total = (amount + extra);
+	document.getElementById("bid_total_donation_amount").innerHTML = total.toFixed(2);
+}
+
+function subtract() {
+  extra = 1;
+  amount = parseFloat(document.getElementById("bid_total_donation_amount").innerHTML);
+  if (isNaN(amount)) {
+      amount = 0.0;
+  }
+total = (amount - extra);
+	document.getElementById("bid_total_donation_amount").innerHTML = total.toFixed(2);
+}
+</script>

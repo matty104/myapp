@@ -1,0 +1,14 @@
+<h1>Create a New Tab</h1>
+
+<% form_for(@comment) do |f| %>
+
+  <p>
+    <%= f.label :post_id %><br />
+    <%= f.text_field :post_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+ <%= link_to 'Cancel', posts_path %>
