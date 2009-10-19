@@ -2,7 +2,7 @@ set :application, "myapp"
   set :user, "root"
   set :use_sudo, false
 
-  set :repository,  "git@github.com:matty104/myapp.git"
+  set :repository,  "git://github.com/matty104/myapp.git"
   
   set :deploy_to, "/srv/#{application}"
   set :scm, :git
